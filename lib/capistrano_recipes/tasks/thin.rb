@@ -40,7 +40,7 @@ Capistrano::Configuration.instance.load do
 
     end
 
-    after "deploy:setup",           "deploy:thin:setup"
+    #after "deploy:setup",           "deploy:thin:setup"
 
   end
 
