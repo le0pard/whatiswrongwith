@@ -2,13 +2,12 @@
 <html>
 <head>
   <title>Whatiswrongwith</title>
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
+  <%= stylesheet_link_tag    "common" %>
+  <%= javascript_include_tag "jquery.1.6.1", "counter" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <%= yield %>
+  <textarea  class="textarea" wrap="virtual" maxlength="255" name="" cols="25" rows="10"></textarea>
 </body>
 </html>
