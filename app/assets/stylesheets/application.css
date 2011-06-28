@@ -5,3 +5,7 @@
  *= require_self
  *= require_tree . 
 */
+
+//= require require_self
+//= require "reset.css"
+//= require "common.css.erb"
