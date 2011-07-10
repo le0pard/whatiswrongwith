@@ -1,4 +1,11 @@
 Whatiswrongwith::Application.routes.draw do
+  namespace :admin do
+    resources :quotes
+    resources :users
+    resource :user_session
+    match 'logout' => 'user_sessions#destroy', :as => :logout, :via => :get
+    root :to => "quotes#index"
+  end
   root :to => 'dashboard#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.

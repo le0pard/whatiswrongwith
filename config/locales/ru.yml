@@ -3,3 +3,7 @@
 
 ru:
   hello: "Привет"
+  flash:
+    user_session:
+      create: "Добро пожаловать"
+      destroy: "Заходи еще"

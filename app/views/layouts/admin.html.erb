@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Dashboard</title>
+  <%= stylesheet_link_tag "admin" %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+  
+  <div id="container">
+    <div id="header">
+      <h1>
+        <%= link_to admin_root_path do %>
+          <%=image_tag "logo.png" %> Whatiswrongwith
+        <% end %>
+      </h1>
+      <div id="user-navigation">
+        <ul class="wat-cf">
+          <li><a href="#">Profile</a></li>
+          <li><%=link_to "Logout", admin_logout_path, :class => "logout" %></li>
+        </ul>
+      </div>
+        <div id="main-navigation">
+          <ul class="wat-cf">
+            <%#=project_menu_item("Logs", logs_path)%>
+          </ul>
+        </div>
+    </div>    
+    <div id="wrapper" class="wat-cf">
+      <div class="flash">
+        <% flash.each do |type, message| -%>
+          <div class="message <%= type %>">
+            <p><%= message %></p>
+          </div>
+        <% end -%>
+      </div>
+      <div id="main">
+        <%= yield %>
+        <div id="footer">
+          <div class="block">
+            <p>Copyright &copy; <%= Time.now.year %> Whatiswrongwith.</p>
+          </div>      
+        </div>
+      </div>
+      <% if content_for?(:sidebar) %>
+      <div id="sidebar">
+        <%= yield :sidebar %>
+      </div>
+      <% end %>
+    </div>    
+  </div>
+  <% if content_for?(:bottom) %>
+    <%= yield :bottom %>
+  <% end %>
+</body>
+</html>

@@ -19,6 +19,8 @@ gem 'kaminari'
 gem 'therubyracer', '0.9.0beta3'
 gem 'dynamic_form'
 gem "thinking-sphinx", "~> 2.0.5"
+gem "authlogic", "3.0.3"
+gem 'bcrypt-ruby'
 
 gem 'jquery-rails'
 
