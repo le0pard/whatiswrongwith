@@ -7,3 +7,8 @@ ru:
     user_session:
       create: "Добро пожаловать"
       destroy: "Заходи еще"
+      
+  views:
+    pagination:
+      previous: "<< Назад"
+      next: "Вперед >>"

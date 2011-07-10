@@ -1,0 +1,13 @@
+<div id="block-forms" class="block">
+  <div class="content">
+    <h2 class="title">Add quote</h2>
+    <div class="inner">
+      <%= form_for [:admin, @quote], :html => {:class => "form"} do |f| %>
+        <%= render :partial => "form", :object => f%>
+        <div class="group navform wat-cf">
+          <%= f.submit "Add", :class => "button" %> or <%= link_to "Cancel", admin_quotes_path %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

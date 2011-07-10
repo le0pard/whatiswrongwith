@@ -1,0 +1,12 @@
+<div class="group">
+  <%= form.label :content, :class => "label" %>
+  <%= form.error_message_on :content %>
+  <%= form.text_area :content, :class => "text_area", :cols => 50, :rows => 10 %>
+  <span class="description">Ex: test@example.com</span>
+</div>
+<div class="group">
+  <%= form.label :source, :class => "label" %>
+  <%= form.error_message_on :source %>
+  <%= form.text_field :source, :class => "text_field" %>
+  <span class="description">Ex: source of quote</span>
+</div>

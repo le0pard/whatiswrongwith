@@ -1,1 +1,36 @@
-hello
+<div class="block" id="block-tables">
+  <div class="content">
+    <h2 class="title">Quotes</h2>
+    <div class="inner">
+      <table class="table">
+        <tr>
+          <th class="first">ID</th>
+          <th>Content</th>
+          <th class="last">&nbsp;</th>
+        </tr>
+        <% @quotes.each do |quote| %>
+          <tr class="<%= cycle("odd", "even") -%>">
+            <td><%= quote.id %></td>
+            <td><%= link_to truncate(quote.content, :length => 100, :separator => ' '), edit_admin_quote_path(quote) %></td>
+            <td class="last"><%= link_to "edit", edit_admin_quote_path(quote) %>  | <%= link_to "delete", admin_quote_path(quote), :method => :delete, :confirm => "Are you sure?" %></td>
+          </tr>
+        <% end %>
+      </table>
+      <div class="actions-bar wat-cf">
+        <div class="actions">
+          <%=link_to "Add quote", new_admin_quote_path %>
+        </div>
+        <%= paginate @quotes, :theme => 'kaminari_theme' %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar do %>
+<div class="block">
+  <h3>Help</h3>
+  <div class="content">
+    <p>Help here</p>
+  </div>
+</div>
+<% end %>
