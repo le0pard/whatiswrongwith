@@ -4,6 +4,7 @@ $:.unshift(File.expand_path('./lib', ENV['rvm_path']))
 require "rvm/capistrano"
 require File.expand_path('../../lib/capistrano_recipes/tasks/capistrano_database_yml.rb', __FILE__)
 require File.expand_path('../../lib/capistrano_recipes/tasks/thin.rb', __FILE__)
+require 'thinking_sphinx/deploy/capistrano'
 #Dir['lib/capistrano_recipes/tasks/*.rb'].each { |task| require task }
 
 set :stages, %w(production)
