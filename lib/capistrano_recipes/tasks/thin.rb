@@ -14,7 +14,7 @@ Capistrano::Configuration.instance.load do
       task :setup, :except => { :no_release => true } do
         run "mkdir -p #{shared_path}/db" 
         run "mkdir -p #{shared_path}/config" 
-        run "cd #{current_path}; bundle exec thin config -C #{shared_path}/config/thin.yml -c #{current_path} -e #{fetch(:rails_env, "production")} -d -s 6 -u #{fetch(:user, "deployer")} -g #{fetch(:group, "deployer")} -l #{shared_path}/log/thin.log -P #{shared_path}/tmp/pids/thin.pid -S #{shared_path}/tmp/sockets/thin.sock"
+        run "cd #{current_path}; bundle exec thin config -C #{shared_path}/config/thin.yml -c #{current_path} -e #{fetch(:rails_env, "production")} -d -s 3 -u #{fetch(:user, "deployer")} -g #{fetch(:group, "deployer")} -l #{shared_path}/log/thin.log -P #{shared_path}/tmp/pids/thin.pid -S #{shared_path}/tmp/sockets/thin.sock"
       end
       
       desc <<-DESC
@@ -40,7 +40,7 @@ Capistrano::Configuration.instance.load do
 
     end
 
-    #after "deploy:setup",           "deploy:thin:setup"
+    after "deploy:setup",           "deploy:thin:setup"
 
   end
 

@@ -6,6 +6,8 @@ Whatiswrongwith::Application.routes.draw do
     match 'logout' => 'user_sessions#destroy', :as => :logout, :via => :get
     root :to => "quotes#index"
   end
+  
+  match 'find' => 'dashboard#create', :as => :find, :via => :post
   root :to => 'dashboard#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.

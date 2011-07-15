@@ -1,2 +1,9 @@
 <h1>Here content!!!</h1>
-<textarea  class="textarea" wrap="virtual" maxlength="255" name="" cols="25" rows="10"></textarea>
+
+<%= form_for @quote_form, :url => find_path do |f| %>
+  <%= f.label :content, :class => "label" %>
+  <%= f.error_message_on :content %>
+  <%= f.text_area :content, :rows => 10, :cols => 30 %>
+  
+  <%= f.submit "Find" %>
+<% end %>

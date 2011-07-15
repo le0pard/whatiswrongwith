@@ -9,4 +9,10 @@ class Quote < ActiveRecord::Base
     has created_at, updated_at
   end
   
+  
+  
+  def self.find_best_quote(text)
+    
+  end
+  
 end
