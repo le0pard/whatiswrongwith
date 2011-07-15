@@ -10,7 +10,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110710175506) do
+ActiveRecord::Schema.define(:version => 20110715210430) do
+
+  create_table "answers", :force => true do |t|
+    t.text     "problem",                   :null => false
+    t.text     "quote",                     :null => false
+    t.integer  "raiting",    :default => 0
+    t.string   "token"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "quotes", :force => true do |t|
     t.text     "content"

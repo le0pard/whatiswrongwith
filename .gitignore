@@ -6,3 +6,6 @@ tmp/
 .project
 public/system/*
 config/database.yml
+config/*.sphinx.conf
+db/sphinx/*
+log/*.pid

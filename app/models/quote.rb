@@ -12,7 +12,22 @@ class Quote < ActiveRecord::Base
   
   
   def self.find_best_quote(text)
-    
+    text_array = text.split(" ")
+    if text_array.length > 1
+      quotes = self.search text_array.join(" | "), :match_mode => :boolean
+      unless quotes.blank?
+        quote = quotes[rand(quotes.size)]
+      else
+        quote = self.find_rand_quote
+      end
+      quote
+    else
+      self.find_rand_quote
+    end 
+  end
+  
+  def self.find_rand_quote
+    self.first
   end
   
 end
