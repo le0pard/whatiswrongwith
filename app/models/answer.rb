@@ -1,5 +1,7 @@
 class Answer < ActiveRecord::Base
   
+  belongs_to :quote
+  
   before_save :set_token
   
   private

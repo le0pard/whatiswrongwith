@@ -1,5 +1,7 @@
 class Quote < ActiveRecord::Base
   
+  has_many :answers
+  
   validates :content, :presence => true, :length => { :maximum => 2000 }
   validates :source, :presence => true, :length => { :maximum => 150 }
   
@@ -27,7 +29,7 @@ class Quote < ActiveRecord::Base
   end
   
   def self.find_rand_quote
-    self.first
+    self.order("random()").limit(1).first
   end
   
 end

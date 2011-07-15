@@ -13,8 +13,8 @@
 ActiveRecord::Schema.define(:version => 20110715210430) do
 
   create_table "answers", :force => true do |t|
+    t.integer  "quote_id",                  :null => false
     t.text     "problem",                   :null => false
-    t.text     "quote",                     :null => false
     t.integer  "raiting",    :default => 0
     t.string   "token"
     t.datetime "created_at"

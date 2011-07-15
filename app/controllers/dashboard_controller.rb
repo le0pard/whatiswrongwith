@@ -11,7 +11,7 @@ class DashboardController < ApplicationController
       unless @quote.nil?
         @answer = Answer.new(
           :problem => @quote_form.content,
-          :quote => @quote.content,
+          :quote => @quote,
         )
         if @answer.save
           redirect_to answer_path(:token => @answer.token)
