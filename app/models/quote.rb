@@ -14,6 +14,7 @@ class Quote < ActiveRecord::Base
   
   
   def self.find_best_quote(text)
+    text.gsub!(/W+/i, "")
     text_array = text.split(" ")
     if text_array.length > 1
       quotes = self.search(text_array.join(" | "), :match_mode => :boolean, :page => 1, :per_page => 50)
