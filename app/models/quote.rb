@@ -16,7 +16,8 @@ class Quote < ActiveRecord::Base
   def self.find_best_quote(text)
     quotes = self.search(text, :match_mode => :any, :page => 1, :per_page => 50)
     unless quotes.blank?
-      quote = quotes[rand(quotes.size)]
+      leng = quotes.size > 100 ? 100 : quotes.size
+      quote = quotes[rand(leng)]
     else
       quote = self.find_rand_quote
     end
