@@ -1,4 +1,6 @@
 <h2>Текст:</h2>
 <p><%= @answer.problem %></p>
 <h2>Текст:</h2>
-<p><%= @answer.quote.content %></p>
+<p><%= simple_format(@answer.quote.content) %></p>
+<h2>Источник:</h2>
+<p><%= simple_format(@answer.quote.source) %></p>
