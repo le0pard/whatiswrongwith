@@ -14,19 +14,13 @@ class Quote < ActiveRecord::Base
   
   
   def self.find_best_quote(text)
-    text.gsub!("-", "").gsub!("|", "").gsub!("/", "").gsub!("\\", "")
-    text_array = text.split(" ")
-    if text_array.length > 1
-      quotes = self.search(text_array.join(" | "), :match_mode => :boolean, :page => 1, :per_page => 50)
-      unless quotes.blank?
-        quote = quotes[rand(quotes.size)]
-      else
-        quote = self.find_rand_quote
-      end
-      quote
+    quotes = self.search(text, :page => 1, :per_page => 50)
+    unless quotes.blank?
+      quote = quotes[rand(quotes.size)]
     else
-      self.find_rand_quote
-    end 
+      quote = self.find_rand_quote
+    end
+    quote
   end
   
   def self.find_rand_quote
