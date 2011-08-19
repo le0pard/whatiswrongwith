@@ -1,26 +1,30 @@
-.textarea {
-  border: 1px solid #ccc;
-  margin: 20px 0 0 20px;
-  width: 400px;
-  height: 100px;
+html {
+  min-height: 100%;
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  height: 100%;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+  font-family: "Times";
+  font-size: 18px;
+}
+
+textarea, .textarea {
+  border: none;
+  width: 100%;
+  height: 200px;
   z-index: 2;
   resize: none;
-  font-size: 12px;
-  font-family: Courier;
-  background: transparent;
+  background-color: transparent;
+  color: #fff;
   position: relative;
+  cursor: text;
 }
-.cursor{
-  padding-right: 5px;
-}
-.back{
-  visibility: hidden;
-  position: absolute;
-  z-index: 1;
-  font-family: Courier;
-  font-size: 12px;
-  word-wrap: break-word; 
-}
+
 .tooltip {
   width: 30px;
   font-size: 9px;
@@ -31,4 +35,27 @@
   display: none;
   font-family: Verdana;
   white-space: nowrap;
+}
+
+div.content {
+  padding: 20% 0 0;
+  width: 30%;
+  margin: 0 auto;
+}
+
+.textarea span {
+  position: relative;
+}
+.counter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  display: none;
+  font-size: 10px;
+  padding: 0px 1px;
+}
+span.cursor {
+  position: relative;
+  width: 1px;
 }

@@ -5,6 +5,70 @@
 // the compiled file.
 //
 //= require jquery
+//= require caret
+//= require color
 //= require jquery_ujs
-//= require "counter.js"
-//= require "dashboard.js.coffee"
+
+$(document).ready(function(){
+  var textarea = $("div.textarea");
+  var counter = $("span.counter");
+  var cursor = $("span.cursor");
+  $(textarea).html(cursor); // adding cursor emulator
+  
+  var symbolLimit = 255; //hardcoded symbol limit
+  var symbolCount = symbolLimit;
+  var textareaSymbols = $(textarea).text().replace('<span class="cursor"><!-- cursor --></span>', '').length;
+  
+  $(counter).text(symbolCount);
+  
+  function counterPositioning(el){
+    //console.log($(cursor).position().left);
+    $(el).css({
+      "top": $(cursor).offset().top - 1,
+      "left": $(cursor).offset().left + 1
+    });
+  }
+  
+  function counterToggleDown() {
+    if (symbolCount > 0) {
+      symbolCount = symbolCount > $(textarea).text().length ? symbolCount-1 : symbolLimit - $(textarea).text().length;
+      $(counter).text(symbolCount);
+    } 
+  }
+  
+  function counterToggleUp() {
+    if (symbolCount < 255) {
+      symbolCount = symbolCount < $(textarea).text().length ? symbolCount+1 : symbolLimit - $(textarea).text().length;
+      $(counter).text(symbolCount);
+    }
+  }
+  
+  $(textarea).focus(function(){
+    counterPositioning(counter);
+    $(counter).show();
+  });
+  
+  $(textarea).blur(function(){
+    $(counter).hide();
+  });
+  
+  $(textarea).keydown(function(){
+    textareaSymbols = $(textarea).text().length;
+    console.log(textareaSymbols);
+  })
+  
+  $(textarea).keyup(function(){
+    if ($(textarea).text().length == 0) {
+      $(textarea).html(cursor).click();
+    }
+    counterPositioning(counter);
+    if ($(textarea).text().length > textareaSymbols) {
+      counterToggleDown();
+    } else {
+      counterToggleUp();
+    }
+  });
+  
+  $(textarea).focus();
+  
+});

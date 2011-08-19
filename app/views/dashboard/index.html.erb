@@ -1,9 +1,8 @@
-<h1>Here content!!!</h1>
-
-<%= form_for @quote_form, :url => find_path do |f| %>
-  <%= f.label :content, :class => "label" %>
-  <%= f.error_message_on :content %>
-  <%= f.text_area :content, :rows => 10, :cols => 30 %>
-  
-  <%= f.submit "Find" %>
-<% end %>
+<div class="content">
+  <div class="textarea" contenteditable="true"></div>
+  <span class="cursor"><!-- cursor --></span>
+  <span class="counter">0</span>
+  <!--<%= form_for @quote_form, :url => find_path do |f| %>
+    <%= f.text_area :content, :rows => 0, :cols => 0, :tabindex => "1" %>
+  <% end %>-->
+</div> <!-- content -->
