@@ -52,9 +52,11 @@ $(document).ready(function(){
     $(counter).hide();
   });
   
-  $(textarea).keydown(function(){
+  $(textarea).keydown(function(e){
     textareaSymbols = $(textarea).text().length;
-    console.log(textareaSymbols);
+    if (e.keyCode == '13') {
+      e.preventDefault();
+    }
   })
   
   $(textarea).keyup(function(){
