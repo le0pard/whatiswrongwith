@@ -30,5 +30,11 @@ class DashboardController < ApplicationController
     @answer = Answer.find_by_token(params[:token])
     redirect_to root_path if @answer.blank?
   end
+
+  def answer
+    @answer = Answer.find_by_id(params[:id])
+    redirect_to root_path if @answer.blank?
+    render 'answer'
+  end
   
 end
