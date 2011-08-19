@@ -8,6 +8,7 @@ Whatiswrongwith::Application.routes.draw do
   end
   
   match 'answer/:token' => 'dashboard#answer', :as => :answer, :via => :get
+  match 'answer/:id' => 'dashboard#answer_temp', :as => :answer_temp, :via => :get
   match 'find' => 'dashboard#create', :as => :find, :via => :post
   root :to => 'dashboard#index'
   # The priority is based upon order of creation:
